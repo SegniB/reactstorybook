@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import { resolve } from "path";
+import path from "path";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
@@ -15,11 +16,20 @@ const config: StorybookConfig = {
     if (!config.resolve) {
       config.resolve = {};
     }
+
+    config.plugins?.push(
+      tsconfigPaths({
+        projects: [path.resolve(path.dirname(__dirname), "tsconfig.app.json")],
+      })
+    );
+
     // Alias configuration
+    /* 
+    import { resolve } from "path";
     config.resolve.alias = {
       ...config.resolve.alias,
       "@": resolve(__dirname, "../src"),
-    };
+    }; */
 
     // Optimize dependencies
     config.optimizeDeps = {

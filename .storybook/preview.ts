@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import "../src/index.css"; // Import your Tailwind CSS styles
 
 const preview: Preview = {
   parameters: {
@@ -8,6 +9,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    layout: "centered", //Center the stories in the preview
   },
 };
 
