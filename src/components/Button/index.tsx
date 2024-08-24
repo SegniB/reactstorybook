@@ -8,7 +8,7 @@ const buttonStyles = cva(
     "rounded-md",
     "font-semibold",
     "focus:outline-none",
-    /* "disabled: cursor-not-allowed", */
+    /* "disabled: cursor-not-allowed",*/
   ],
   {
     variants: {
